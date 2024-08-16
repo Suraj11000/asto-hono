@@ -1,0 +1,21 @@
+---
+let timestamp = 'Loading...';
+
+try {
+  const response = await fetch('https://hono-rryn.vercel.app');
+  const data = await response.json();
+  timestamp = data.timestamp;
+} catch (error) {
+  timestamp = 'Failed to fetch timestamp';
+}
+---
+
+<html>
+<head>
+  <title>Astro Timestamp</title>
+</head>
+<body>
+  <h1>Current Timestamp</h1>
+  <p>{timestamp}</p>
+</body>
+</html>
